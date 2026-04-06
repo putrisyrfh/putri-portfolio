@@ -1,0 +1,8 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#F5EDE3"/>
+  <rect x="1" y="1" width="798" height="598" stroke="#A68B6B" stroke-width="2" stroke-dasharray="8 4"/>
+  <circle cx="400" cy="260" r="60" stroke="#A68B6B" stroke-width="2" fill="none"/>
+  <path d="M375 260L395 280L425 240" stroke="#A68B6B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="400" y="360" text-anchor="middle" fill="#8B6F47" font-family="Georgia, serif" font-size="18">Project Image Placeholder</text>
+  <text x="400" y="390" text-anchor="middle" fill="#A68B6B" font-family="Georgia, serif" font-size="14">800 x 600</text>
+</svg>
