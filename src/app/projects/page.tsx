@@ -29,7 +29,7 @@ export default function ProjectsPage() {
     <>
       <section className="max-w-6xl mx-auto px-6 pt-16 pb-8">
         <motion.div {...fadeUp}>
-          <span className="text-sm font-mono text-warm-brown tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
             Portfolio
           </span>
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-text-primary mt-2 mb-4">
@@ -47,8 +47,8 @@ export default function ProjectsPage() {
               onClick={() => setFilter(cat)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === cat
-                  ? "bg-warm-brown text-dark-bg"
-                  : "glass-button text-text-secondary hover:text-warm-brown-light"
+                  ? "bg-accent-gold text-bg-deep"
+                  : "glass-button text-text-secondary hover:text-accent-cream"
               }`}
             >
               {cat}
@@ -86,8 +86,8 @@ export default function ProjectsPage() {
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </motion.div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/60 to-transparent" />
-                    <div className="absolute top-4 left-4 px-3 py-1 glass rounded-full text-xs font-mono text-warm-brown-light">
+                    <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/60 to-transparent" />
+                    <div className="absolute top-4 left-4 px-3 py-1 glass rounded-full text-xs font-mono text-accent-cream">
                       {project.category}
                     </div>
                     <div className="absolute top-4 right-4 px-3 py-1 glass rounded-full text-xs font-mono text-text-muted">
@@ -95,7 +95,7 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-serif font-bold text-text-primary group-hover:text-warm-gold transition-colors mb-2">
+                    <h3 className="text-lg font-serif font-bold text-text-primary group-hover:text-accent-gold transition-colors mb-2">
                       {project.title}
                     </h3>
                     <p className="text-sm text-text-secondary leading-relaxed mb-4">
@@ -105,13 +105,13 @@ export default function ProjectsPage() {
                       {project.tools.map((tool) => (
                         <span
                           key={tool}
-                          className="px-2 py-1 text-xs font-mono glass rounded text-warm-brown"
+                          className="px-2 py-1 text-xs font-mono glass rounded text-accent-gold/70"
                         >
                           {tool}
                         </span>
                       ))}
                     </div>
-                    <div className="flex items-center gap-2 text-sm font-medium text-warm-brown">
+                    <div className="flex items-center gap-2 text-sm font-medium text-accent-gold/70">
                       <span>Read Case Study</span>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
                         <path d="M5 12h14M12 5l7 7-7 7" />

@@ -19,7 +19,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass bg-bg-deep/80">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <span className="text-2xl font-serif font-bold text-text-primary tracking-tight">
@@ -39,15 +39,15 @@ export default function Navbar() {
                 href={link.href}
                 className={`relative text-sm font-medium tracking-wide transition-colors ${
                   isActive
-                    ? "text-warm-gold"
-                    : "text-text-secondary hover:text-warm-brown-light"
+                    ? "text-accent-gold"
+                    : "text-text-secondary hover:text-accent-cream"
                 }`}
               >
                 {link.label}
                 {isActive && (
                   <motion.div
                     layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-warm-gold"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-gold"
                   />
                 )}
               </Link>
@@ -57,7 +57,7 @@ export default function Navbar() {
             href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 px-5 py-2 text-sm font-medium glass-button rounded-full text-warm-brown-light hover:text-warm-gold transition-all"
+            className="ml-4 px-5 py-2 text-sm font-medium glass-button rounded-full text-accent-cream hover:text-accent-gold transition-all"
           >
             Resume
           </a>
@@ -97,7 +97,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-lg font-medium text-text-secondary hover:text-warm-brown-light transition-colors"
+                  className="text-lg font-medium text-text-secondary hover:text-accent-cream transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -106,7 +106,7 @@ export default function Navbar() {
                 href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block w-fit px-5 py-2 text-sm font-medium glass-button rounded-full text-warm-brown-light"
+                className="inline-block w-fit px-5 py-2 text-sm font-medium glass-button rounded-full text-accent-cream"
               >
                 Resume
               </a>

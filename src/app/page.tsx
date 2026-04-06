@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { projects, experiences, dribbbleShots } from "@/data/projects";
-import { SectionDivider } from "@/components/VintageElements";
+import { SectionDivider, TornPaperEdge } from "@/components/VintageElements";
 import { VintageIcon } from "@/components/VintageIcons";
 import Globe from "@/components/Globe";
 
@@ -55,7 +55,7 @@ export default function Home() {
       {/* =================== HERO =================== */}
       <section
         ref={heroRef}
-        className="relative min-h-[100vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[100vh] flex items-center justify-center overflow-hidden hero-bg"
       >
         {/* Floating vintage images - no box, just rounded images */}
         {vintageItems.map((item, i) => (
@@ -88,7 +88,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-sm font-mono text-warm-brown tracking-widest uppercase mb-6"
+            className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase mb-6"
           >
             This is Putri
           </motion.p>
@@ -97,11 +97,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.7 }}
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-text-primary leading-[1.1] mb-6"
+            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-[family-name:var(--font-display)] text-text-primary leading-[1.1] mb-6"
           >
-            <span className="italic text-warm-gold">Product</span> and
+            <span className="italic text-accent-gold">Product</span> and
             <br />
-            <span className="italic text-warm-gold">Visual</span> designer
+            <span className="italic text-accent-gold">Visual</span> designer
           </motion.h1>
 
           <motion.p
@@ -120,7 +120,7 @@ export default function Home() {
           >
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-10 py-4 glass-button rounded-full font-medium text-lg text-warm-brown-light hover:text-warm-gold transition-all duration-300"
+              className="inline-flex items-center gap-2 px-10 py-4 glass-button rounded-full font-medium text-lg text-accent-gold/70-light hover:text-accent-gold transition-all duration-300"
             >
               Check out my works
             </Link>
@@ -150,14 +150,16 @@ export default function Home() {
             </svg>
           </div>
         </motion.div>
+        {/* Torn paper edge at hero bottom */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <TornPaperEdge />
+        </div>
       </section>
-
-      <SectionDivider />
 
       {/* =================== FEATURED PROJECTS =================== */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <motion.div {...fadeUp} className="mb-12">
-          <span className="text-sm font-mono text-warm-brown tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
             Selected Work
           </span>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-text-primary mt-2">
@@ -188,8 +190,8 @@ export default function Home() {
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </motion.div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/60 to-transparent" />
-                    <div className="absolute top-4 left-4 px-3 py-1 glass rounded-full text-xs font-mono text-warm-brown-light">
+                    <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/60 to-transparent" />
+                    <div className="absolute top-4 left-4 px-3 py-1 glass rounded-full text-xs font-mono text-accent-gold/70-light">
                       {project.category}
                     </div>
                     <div className="absolute top-4 right-4 px-3 py-1 glass rounded-full text-xs font-mono text-text-muted">
@@ -197,13 +199,13 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-serif font-bold text-text-primary group-hover:text-warm-gold transition-colors mb-2 line-clamp-2">
+                    <h3 className="text-lg font-serif font-bold text-text-primary group-hover:text-accent-gold transition-colors mb-2 line-clamp-2">
                       {project.title}
                     </h3>
                     <p className="text-sm text-text-secondary leading-relaxed mb-4">
                       {project.description}
                     </p>
-                    <div className="flex items-center gap-2 text-sm font-medium text-warm-brown">
+                    <div className="flex items-center gap-2 text-sm font-medium text-accent-gold/70">
                       <span>View Case Study</span>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
                         <path d="M5 12h14M12 5l7 7-7 7" />
@@ -222,7 +224,7 @@ export default function Home() {
       {/* =================== EXPERIENCE (vertical timeline) =================== */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <motion.div {...fadeUp} className="mb-12">
-          <span className="text-sm font-mono text-warm-brown tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
             Experience
           </span>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-text-primary mt-2">
@@ -239,7 +241,7 @@ export default function Home() {
               className="group relative pl-12 pb-12 border-l border-glass-border last:pb-0"
             >
               {/* Timeline icon */}
-              <div className="absolute left-[-17px] top-0 w-8 h-8 rounded-full bg-dark-surface border border-glass-border flex items-center justify-center group-hover:border-warm-brown/40 transition-colors">
+              <div className="absolute left-[-17px] top-0 w-8 h-8 rounded-full bg-bg-main border border-glass-border flex items-center justify-center group-hover:border-accent-gold/40 transition-colors">
                 <VintageIcon type={exp.icon} />
               </div>
 
@@ -249,7 +251,7 @@ export default function Home() {
                     {exp.role} - {exp.company}
                   </h3>
                 </div>
-                <p className="text-sm font-mono text-warm-gold mb-3">
+                <p className="text-sm font-mono text-accent-gold mb-3">
                   {exp.period} | {exp.location}
                 </p>
                 <p className="text-sm text-text-secondary leading-relaxed">
@@ -266,7 +268,7 @@ export default function Home() {
       {/* =================== DESIGN EXPLORATIONS (DRIBBBLE) =================== */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <motion.div {...fadeUp} className="mb-12">
-          <span className="text-sm font-mono text-warm-brown tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
             Playground
           </span>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-text-primary mt-2">
@@ -293,7 +295,7 @@ export default function Home() {
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                     sizes="(max-width: 768px) 50vw, 20vw"
                   />
-                  <div className="absolute inset-0 bg-dark-bg/0 group-hover:bg-dark-bg/50 transition-colors duration-300 flex items-end">
+                  <div className="absolute inset-0 bg-bg-deep/0 group-hover:bg-bg-deep/50 transition-colors duration-300 flex items-end">
                     <div className="p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                       <p className="text-cream text-xs font-bold">{shot.title}</p>
                     </div>
@@ -309,7 +311,7 @@ export default function Home() {
             href="https://dribbble.com/putrisyrfh"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 glass-button rounded-full text-sm font-medium text-warm-brown-light hover:text-warm-gold transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 glass-button rounded-full text-sm font-medium text-accent-gold/70-light hover:text-accent-gold transition-all"
           >
             See all on Dribbble
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -329,12 +331,12 @@ export default function Home() {
           {...fadeUp}
           className="glass-card rounded-2xl p-10 md:p-16 text-center relative overflow-hidden warm-glow"
         >
-          <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-warm-brown/20" />
-          <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-warm-brown/20" />
-          <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-warm-brown/20" />
-          <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-warm-brown/20" />
+          <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-accent-gold/20" />
+          <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-accent-gold/20" />
+          <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-accent-gold/20" />
+          <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-accent-gold/20" />
 
-          <span className="text-sm font-mono text-warm-brown tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
             Let&apos;s Connect
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-text-primary mt-4 mb-6">
@@ -347,7 +349,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:putrisyarifah12@gmail.com"
-              className="px-8 py-3 glass-button rounded-full font-medium text-warm-brown-light hover:text-warm-gold transition-all"
+              className="px-8 py-3 glass-button rounded-full font-medium text-accent-gold/70-light hover:text-accent-gold transition-all"
             >
               Send Me a Message
             </a>
@@ -355,23 +357,23 @@ export default function Home() {
               href="https://wa.me/6285813133021"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 glass-button rounded-full font-medium text-warm-brown-light hover:text-warm-gold transition-all"
+              className="px-8 py-3 glass-button rounded-full font-medium text-accent-gold/70-light hover:text-accent-gold transition-all"
             >
               WhatsApp Me
             </a>
           </div>
 
           <div className="flex justify-center gap-6 mt-8">
-            <a href="mailto:putrisyarifah12@gmail.com" className="text-text-muted hover:text-warm-brown-light transition-colors">
+            <a href="mailto:putrisyarifah12@gmail.com" className="text-text-muted hover:text-accent-gold/70-light transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
-            <a href="https://www.linkedin.com/in/putrist/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-warm-brown-light transition-colors">
+            <a href="https://www.linkedin.com/in/putrist/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent-gold/70-light transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="https://dribbble.com/putrisyrfh" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-warm-brown-light transition-colors">
+            <a href="https://dribbble.com/putrisyrfh" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent-gold/70-light transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 12.42 6.84 20.68"/></svg>
             </a>
-            <a href="https://wa.me/6285813133021" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-warm-brown-light transition-colors">
+            <a href="https://wa.me/6285813133021" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent-gold/70-light transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             </a>
           </div>

@@ -24,7 +24,7 @@ export default function ProjectDetail() {
         <h1 className="text-4xl font-serif font-bold text-text-primary mb-4">
           Project not found
         </h1>
-        <Link href="/projects" className="text-warm-brown hover:underline">
+        <Link href="/projects" className="text-accent-gold/70 hover:underline">
           Back to Projects
         </Link>
       </div>
@@ -44,11 +44,11 @@ export default function ProjectDetail() {
           animate={{ opacity: 1 }}
           className="flex items-center gap-2 text-sm font-mono text-text-muted"
         >
-          <Link href="/projects" className="hover:text-warm-brown-light transition-colors">
+          <Link href="/projects" className="hover:text-accent-cream transition-colors">
             Projects
           </Link>
           <span>/</span>
-          <span className="text-warm-brown">{project.title}</span>
+          <span className="text-accent-gold/70">{project.title}</span>
         </motion.div>
       </div>
 
@@ -56,7 +56,7 @@ export default function ProjectDetail() {
       <section className="max-w-6xl mx-auto px-6 py-12">
         <motion.div {...fadeUp}>
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="px-3 py-1 glass rounded-full text-xs font-mono text-warm-brown-light">
+            <span className="px-3 py-1 glass rounded-full text-xs font-mono text-accent-cream">
               {project.category}
             </span>
             <span className="text-sm font-mono text-text-muted">{project.year}</span>
@@ -77,7 +77,7 @@ export default function ProjectDetail() {
             { label: "Tools", value: project.tools.join(", ") },
           ].map((item) => (
             <div key={item.label} className="glass-card rounded-xl p-4">
-              <p className="text-xs font-mono text-warm-brown uppercase tracking-widest mb-2">
+              <p className="text-xs font-mono text-accent-gold/70 uppercase tracking-widest mb-2">
                 {item.label}
               </p>
               <p className="text-sm text-text-primary font-medium">{item.value}</p>
@@ -114,7 +114,7 @@ export default function ProjectDetail() {
               <motion.h3
                 key={i}
                 {...fadeUp}
-                className="text-lg md:text-xl font-serif font-bold text-warm-brown-light mt-8 mb-4"
+                className="text-lg md:text-xl font-serif font-bold text-accent-cream mt-8 mb-4"
               >
                 {section.content}
               </motion.h3>
@@ -134,7 +134,7 @@ export default function ProjectDetail() {
           if (section.type === "bullet") {
             return (
               <motion.div key={i} {...fadeUp} className="flex gap-3 mb-3">
-                <span className="text-warm-brown mt-1.5 flex-shrink-0">
+                <span className="text-accent-gold/70 mt-1.5 flex-shrink-0">
                   <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="currentColor" /></svg>
                 </span>
                 <p className="text-text-secondary leading-relaxed">{section.content}</p>
@@ -145,7 +145,7 @@ export default function ProjectDetail() {
             numberedCount++;
             return (
               <motion.div key={i} {...fadeUp} className="flex gap-3 mb-3">
-                <span className="text-warm-brown font-mono text-sm mt-0.5 flex-shrink-0 w-6">
+                <span className="text-accent-gold/70 font-mono text-sm mt-0.5 flex-shrink-0 w-6">
                   {numberedCount}.
                 </span>
                 <p className="text-text-secondary leading-relaxed">{section.content}</p>
@@ -179,7 +179,7 @@ export default function ProjectDetail() {
       {/* Next Project */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <motion.div {...fadeUp} className="text-center">
-          <span className="text-sm font-mono text-warm-brown tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
             Next Project
           </span>
           <h2 className="text-2xl md:text-3xl font-serif font-bold text-text-primary mt-2 mb-8">
@@ -187,7 +187,7 @@ export default function ProjectDetail() {
           </h2>
           <Link
             href={`/projects/${nextProject.slug}`}
-            className="inline-flex items-center gap-2 px-8 py-3 glass-button rounded-full font-medium text-warm-brown-light hover:text-warm-gold transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3 glass-button rounded-full font-medium text-accent-cream hover:text-accent-gold transition-all"
           >
             View Project
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

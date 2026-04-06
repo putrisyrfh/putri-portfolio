@@ -13,7 +13,7 @@ export default function Globe() {
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       >
         <svg viewBox="0 0 200 200" className="w-full h-full">
-          <circle cx="100" cy="100" r="90" fill="#2C2620" stroke="#C4A97D" strokeWidth="0.8" />
+          <circle cx="100" cy="100" r="90" fill="#2D3E32" stroke="#C4A97D" strokeWidth="0.8" />
 
           <ellipse cx="100" cy="100" rx="30" ry="88" fill="none" stroke="#C4A97D" strokeWidth="0.3" opacity="0.3" />
           <ellipse cx="100" cy="100" rx="60" ry="88" fill="none" stroke="#C4A97D" strokeWidth="0.3" opacity="0.3" />
@@ -51,7 +51,7 @@ export default function Globe() {
       >
         <svg width="24" height="30" viewBox="0 0 24 30" fill="none">
           <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 18 12 18s12-9 12-18C24 5.4 18.6 0 12 0z" fill="#D4817A" />
-          <circle cx="12" cy="11" r="4" fill="#1A1612" />
+          <circle cx="12" cy="11" r="4" fill="#1C2B1F" />
         </svg>
         <div className="absolute left-7 top-0 whitespace-nowrap">
           <div className="glass px-2 py-1 rounded shadow-sm">

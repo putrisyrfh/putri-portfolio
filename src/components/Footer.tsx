@@ -7,7 +7,7 @@ const RESUME_URL =
 
 export default function Footer() {
   return (
-    <footer className="border-t border-glass-border bg-dark-surface/50">
+    <footer className="border-t border-glass-border bg-bg-deep/80">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
           <div className="max-w-md">
@@ -25,7 +25,7 @@ export default function Footer() {
             </p>
             <a
               href="mailto:putrisyarifah12@gmail.com"
-              className="inline-block px-6 py-3 glass-button rounded-full font-medium text-warm-brown-light hover:text-warm-gold transition-all"
+              className="inline-block px-6 py-3 glass-button rounded-full font-medium text-accent-cream hover:text-accent-gold transition-all"
             >
               Say Hello
             </a>
@@ -33,14 +33,14 @@ export default function Footer() {
 
           <div className="flex flex-col sm:flex-row gap-8">
             <div>
-              <h4 className="text-sm font-mono text-warm-brown uppercase tracking-widest mb-4">
+              <h4 className="text-sm font-mono text-accent-gold/70 uppercase tracking-widest mb-4">
                 Reach Me
               </h4>
               <ul className="space-y-2 text-text-secondary">
                 <li>
                   <a
                     href="mailto:putrisyarifah12@gmail.com"
-                    className="hover:text-warm-brown-light transition-colors"
+                    className="hover:text-accent-cream transition-colors"
                   >
                     putrisyarifah12@gmail.com
                   </a>
@@ -50,7 +50,7 @@ export default function Footer() {
                     href="https://www.linkedin.com/in/putrist/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-warm-brown-light transition-colors"
+                    className="hover:text-accent-cream transition-colors"
                   >
                     LinkedIn
                   </a>
@@ -60,7 +60,7 @@ export default function Footer() {
                     href="https://dribbble.com/putrisyrfh"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-warm-brown-light transition-colors"
+                    className="hover:text-accent-cream transition-colors"
                   >
                     Dribbble
                   </a>
@@ -70,7 +70,7 @@ export default function Footer() {
                     href="https://wa.me/6285813133021"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-warm-brown-light transition-colors"
+                    className="hover:text-accent-cream transition-colors"
                   >
                     WhatsApp
                   </a>
@@ -78,17 +78,17 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-mono text-warm-brown uppercase tracking-widest mb-4">
+              <h4 className="text-sm font-mono text-accent-gold/70 uppercase tracking-widest mb-4">
                 Quick Links
               </h4>
               <ul className="space-y-2 text-text-secondary">
                 <li>
-                  <a href="/projects" className="hover:text-warm-brown-light transition-colors">
+                  <a href="/projects" className="hover:text-accent-cream transition-colors">
                     Projects
                   </a>
                 </li>
                 <li>
-                  <a href="/about" className="hover:text-warm-brown-light transition-colors">
+                  <a href="/about" className="hover:text-accent-cream transition-colors">
                     About
                   </a>
                 </li>
@@ -97,7 +97,7 @@ export default function Footer() {
                     href={RESUME_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-warm-brown-light transition-colors"
+                    className="hover:text-accent-cream transition-colors"
                   >
                     Download Resume
                   </a>
@@ -112,7 +112,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Putri S. Crafted with care from
             Bogor, Indonesia.
           </p>
-          <div className="flex items-center gap-2 text-sm text-warm-brown">
+          <div className="flex items-center gap-2 text-sm text-accent-gold/70">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
               <circle cx="12" cy="9" r="2.5" />
