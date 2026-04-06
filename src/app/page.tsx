@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { projects, experiences, dribbbleShots } from "@/data/projects";
 import { SectionDivider } from "@/components/VintageElements";
+import { VintageIcon } from "@/components/VintageIcons";
 import Globe from "@/components/Globe";
 
 const fadeUp = {
@@ -21,14 +22,14 @@ const stagger = {
   viewport: { once: true },
 };
 
-// Vintage realistic images (transparent PNGs from Unsplash)
+// Vintage images - no box, floating transparent style
 const vintageItems = [
-  { src: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=200&fit=crop", alt: "Vintage camera", rotate: -8 },
-  { src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&h=200&fit=crop", alt: "Coffee cup", rotate: 6 },
-  { src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop", alt: "Travel map", rotate: -5 },
+  { src: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=200&fit=crop", alt: "Vintage camera", rotate: -10 },
+  { src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&h=200&fit=crop", alt: "Coffee", rotate: 8 },
+  { src: "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=200&h=200&fit=crop", alt: "Airplane travel", rotate: -6 },
+  { src: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=200&h=200&fit=crop", alt: "Music guitar", rotate: 12 },
+  { src: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=200&h=200&fit=crop", alt: "Art painting", rotate: -8 },
   { src: "https://images.unsplash.com/photo-1524578271613-d550eacf6090?w=200&h=200&fit=crop", alt: "Vintage book", rotate: 5 },
-  { src: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=200&h=200&fit=crop", alt: "Guitar music", rotate: -4 },
-  { src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=200&h=200&fit=crop", alt: "Knitting yarn", rotate: 7 },
 ];
 
 const floatingPositions = [
@@ -56,7 +57,7 @@ export default function Home() {
         ref={heroRef}
         className="relative min-h-[100vh] flex items-center justify-center overflow-hidden"
       >
-        {/* Floating vintage images */}
+        {/* Floating vintage images - no box, just rounded images */}
         {vintageItems.map((item, i) => (
           <motion.div
             key={item.alt}
@@ -66,13 +67,13 @@ export default function Home() {
             className={`absolute ${floatingPositions[i]} hidden md:block`}
           >
             <motion.div
-              animate={{ y: [0, -8, 0], rotate: [item.rotate, item.rotate + 2, item.rotate] }}
+              animate={{ y: [0, -10, 0], rotate: [item.rotate, item.rotate + 3, item.rotate] }}
               transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
-              className="glass-card rounded-xl overflow-hidden p-2 hover:scale-105 transition-transform duration-500 cursor-pointer"
+              className="hover:scale-110 transition-transform duration-500 cursor-pointer drop-shadow-2xl"
               style={{ rotate: `${item.rotate}deg` }}
             >
-              <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden">
-                <Image src={item.src} alt={item.alt} fill className="object-cover" sizes="96px" />
+              <div className="relative w-20 h-20 lg:w-28 lg:h-28 rounded-2xl overflow-hidden">
+                <Image src={item.src} alt={item.alt} fill className="object-cover" sizes="112px" />
               </div>
             </motion.div>
           </motion.div>
@@ -125,7 +126,6 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          {/* Globe */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -136,7 +136,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div
           className="absolute bottom-6 left-1/2 -translate-x-1/2"
           animate={{ y: [0, 8, 0] }}
@@ -175,7 +174,6 @@ export default function Home() {
             >
               <Link href={`/projects/${project.slug}`} className="group block">
                 <div className="glass-card rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 warm-glow">
-                  {/* Animated image container */}
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <motion.div
                       className="absolute inset-0"
@@ -190,7 +188,6 @@ export default function Home() {
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </motion.div>
-                    {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/60 to-transparent" />
                     <div className="absolute top-4 left-4 px-3 py-1 glass rounded-full text-xs font-mono text-warm-brown-light">
                       {project.category}
@@ -208,11 +205,7 @@ export default function Home() {
                     </p>
                     <div className="flex items-center gap-2 text-sm font-medium text-warm-brown">
                       <span>View Case Study</span>
-                      <svg
-                        width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" strokeWidth="2"
-                        className="group-hover:translate-x-1 transition-transform"
-                      >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                       </svg>
                     </div>
@@ -226,7 +219,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* =================== EXPERIENCE =================== */}
+      {/* =================== EXPERIENCE (vertical timeline) =================== */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <motion.div {...fadeUp} className="mb-12">
           <span className="text-sm font-mono text-warm-brown tracking-widest uppercase">
@@ -237,25 +230,28 @@ export default function Home() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-0">
           {experiences.map((exp, i) => (
             <motion.div
               key={`${exp.company}-${exp.period}`}
               {...stagger}
               transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="group relative pl-12 pb-12 border-l border-glass-border last:pb-0"
             >
-              <div className="glass-card rounded-xl p-6 h-full hover:-translate-y-1 transition-all duration-300">
-                <div className="flex items-start gap-3 mb-3">
-                  <span className="text-2xl">{exp.emoji}</span>
-                  <div>
-                    <h3 className="text-lg font-serif font-bold text-text-primary">
-                      {exp.role} - {exp.company}
-                    </h3>
-                    <p className="text-sm font-mono text-warm-gold">
-                      {exp.period} | {exp.location}
-                    </p>
-                  </div>
+              {/* Timeline icon */}
+              <div className="absolute left-[-17px] top-0 w-8 h-8 rounded-full bg-dark-surface border border-glass-border flex items-center justify-center group-hover:border-warm-brown/40 transition-colors">
+                <VintageIcon type={exp.icon} />
+              </div>
+
+              <div className="glass-card rounded-xl p-6 hover:-translate-y-1 transition-all duration-300">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-2">
+                  <h3 className="text-lg font-serif font-bold text-text-primary">
+                    {exp.role} - {exp.company}
+                  </h3>
                 </div>
+                <p className="text-sm font-mono text-warm-gold mb-3">
+                  {exp.period} | {exp.location}
+                </p>
                 <p className="text-sm text-text-secondary leading-relaxed">
                   {exp.description}
                 </p>
@@ -277,34 +273,29 @@ export default function Home() {
             Design explorations
           </h2>
           <p className="text-text-secondary mt-3 max-w-xl">
-            Side projects, visual experiments, and creative explorations from my Dribbble.
+            Side projects and visual experiments from my Dribbble.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {dribbbleShots.map((shot, i) => (
             <motion.div
               key={shot.title}
               {...stagger}
               transition={{ delay: i * 0.08, duration: 0.5 }}
             >
-              <a
-                href={shot.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
+              <a href={shot.url} target="_blank" rel="noopener noreferrer" className="group block">
                 <div className="relative aspect-[4/3] rounded-xl overflow-hidden glass-card hover:-translate-y-1 transition-all duration-300">
                   <Image
                     src={shot.image}
                     alt={shot.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 50vw, 20vw"
                   />
                   <div className="absolute inset-0 bg-dark-bg/0 group-hover:bg-dark-bg/50 transition-colors duration-300 flex items-end">
                     <div className="p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <p className="text-cream text-sm font-bold">{shot.title}</p>
+                      <p className="text-cream text-xs font-bold">{shot.title}</p>
                     </div>
                   </div>
                 </div>
@@ -370,7 +361,6 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Social links */}
           <div className="flex justify-center gap-6 mt-8">
             <a href="mailto:putrisyarifah12@gmail.com" className="text-text-muted hover:text-warm-brown-light transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
