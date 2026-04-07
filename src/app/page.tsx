@@ -24,12 +24,12 @@ const stagger = {
 
 // Sticker-style vintage images - no frame
 const vintageItems = [
-  { src: "/images/vintage-camera.png", alt: "Vintage camera", rotate: -10, w: 120, h: 100 },
-  { src: "/images/vintage-coffee.png", alt: "Coffee", rotate: 8, w: 100, h: 100 },
-  { src: "/images/vintage-travel.png", alt: "Travel", rotate: -6, w: 130, h: 130 },
-  { src: "/images/vintage-cassette.png", alt: "Music cassette", rotate: 12, w: 110, h: 80 },
-  { src: "/images/vintage-books.png", alt: "Books", rotate: -8, w: 120, h: 120 },
-  { src: "/images/vintage-tulips.png", alt: "Tulips", rotate: 5, w: 90, h: 130 },
+  { src: "/images/vintage-camera.png", alt: "Vintage camera", rotate: -10, w: 200, h: 170 },
+  { src: "/images/vintage-coffee.png", alt: "Coffee", rotate: 8, w: 170, h: 170 },
+  { src: "/images/vintage-travel.png", alt: "Travel", rotate: -6, w: 220, h: 220 },
+  { src: "/images/vintage-cassette.png", alt: "Music cassette", rotate: 12, w: 190, h: 140 },
+  { src: "/images/vintage-books.png", alt: "Books", rotate: -8, w: 200, h: 200 },
+  { src: "/images/vintage-tulips.png", alt: "Tulips", rotate: 5, w: 160, h: 220 },
 ];
 
 const floatingPositions = [
