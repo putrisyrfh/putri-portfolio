@@ -57,19 +57,7 @@ export default function Home() {
         ref={heroRef}
         className="relative min-h-[100vh] flex items-center justify-center overflow-hidden hero-bg"
       >
-        {/* Journal botanical element on the right side */}
-        <div className="absolute right-0 top-0 bottom-0 w-[200px] lg:w-[300px] hidden md:block pointer-events-none">
-          <Image
-            src="/images/journal-botanical.png"
-            alt="Journal page"
-            fill
-            className="object-contain object-right-top"
-            sizes="300px"
-            priority
-          />
-        </div>
-
-        {/* Floating vintage sticker images - no frame */}
+        {/* Floating vintage sticker images - no frame, no white bg */}
         {vintageItems.map((item, i) => (
           <motion.div
             key={item.alt}
@@ -84,14 +72,14 @@ export default function Home() {
                 rotate: [item.rotate, item.rotate + 3, item.rotate],
               }}
               transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
-              className="hover:scale-110 transition-transform duration-500 cursor-pointer drop-shadow-lg"
+              className="hover:scale-110 transition-transform duration-500 cursor-pointer"
             >
               <Image
                 src={item.src}
                 alt={item.alt}
                 width={item.w}
                 height={item.h}
-                className="object-contain"
+                className="object-contain mix-blend-multiply drop-shadow-lg"
                 style={{ transform: `rotate(${item.rotate}deg)` }}
               />
             </motion.div>
@@ -107,7 +95,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-sm font-mono text-accent-brown tracking-widest uppercase mb-6"
+            className="text-sm font-mono text-accent-sage font-semibold tracking-widest uppercase mb-6"
           >
             This is Putri
           </motion.p>
@@ -118,9 +106,9 @@ export default function Home() {
             transition={{ delay: 0.35, duration: 0.7 }}
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-[family-name:var(--font-display)] text-text-primary leading-[1.1] mb-6"
           >
-            <span className="italic text-accent-brown">Product</span> and
+            <span className="italic text-accent-sage">Product</span> and
             <br />
-            <span className="italic text-accent-brown">Visual</span> designer
+            <span className="italic text-accent-sage">Visual</span> designer
           </motion.h1>
 
           <motion.p
