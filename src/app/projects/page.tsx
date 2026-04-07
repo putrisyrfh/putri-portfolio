@@ -29,7 +29,7 @@ export default function ProjectsPage() {
     <>
       <section className="max-w-6xl mx-auto px-6 pt-16 pb-8">
         <motion.div {...fadeUp}>
-          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-brown tracking-widest uppercase">
             Portfolio
           </span>
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-text-primary mt-2 mb-4">
@@ -47,8 +47,8 @@ export default function ProjectsPage() {
               onClick={() => setFilter(cat)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === cat
-                  ? "bg-accent-gold text-bg-deep"
-                  : "glass-button text-text-secondary hover:text-accent-cream"
+                  ? "bg-accent-brown text-white"
+                  : "bg-white border border-accent-brown/15 text-text-secondary hover:text-accent-brown hover:border-accent-brown/30"
               }`}
             >
               {cat}
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
               layout
             >
               <Link href={`/projects/${project.slug}`} className="group block">
-                <div className="glass-card rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 warm-glow">
+                <div className="bg-white shadow-sm border border-accent-brown/8 rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 warm-glow">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <motion.div
                       className="absolute inset-0"
@@ -86,16 +86,16 @@ export default function ProjectsPage() {
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </motion.div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/60 to-transparent" />
-                    <div className="absolute top-4 left-4 px-3 py-1 glass rounded-full text-xs font-mono text-accent-cream">
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/60 to-transparent" />
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full text-xs font-mono text-accent-brown">
                       {project.category}
                     </div>
-                    <div className="absolute top-4 right-4 px-3 py-1 glass rounded-full text-xs font-mono text-text-muted">
+                    <div className="absolute top-4 right-4 px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full text-xs font-mono text-text-muted">
                       {project.year}
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-serif font-bold text-text-primary group-hover:text-accent-gold transition-colors mb-2">
+                    <h3 className="text-lg font-serif font-bold text-text-primary group-hover:text-accent-brown-dark transition-colors mb-2">
                       {project.title}
                     </h3>
                     <p className="text-sm text-text-secondary leading-relaxed mb-4">
@@ -105,13 +105,13 @@ export default function ProjectsPage() {
                       {project.tools.map((tool) => (
                         <span
                           key={tool}
-                          className="px-2 py-1 text-xs font-mono glass rounded text-accent-gold/70"
+                          className="px-2 py-1 text-xs font-mono bg-white/80 backdrop-blur-sm rounded text-accent-brown"
                         >
                           {tool}
                         </span>
                       ))}
                     </div>
-                    <div className="flex items-center gap-2 text-sm font-medium text-accent-gold/70">
+                    <div className="flex items-center gap-2 text-sm font-medium text-accent-brown">
                       <span>Read Case Study</span>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
                         <path d="M5 12h14M12 5l7 7-7 7" />

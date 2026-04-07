@@ -80,7 +80,7 @@ export default function AboutPage() {
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
-              className="glass-card rounded-xl overflow-hidden p-2"
+              className="bg-white shadow-sm border border-accent-brown/8 rounded-xl overflow-hidden p-2"
               style={{ rotate: `${item.rotate}deg` }}
             >
               <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden">
@@ -96,7 +96,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
+            <span className="text-sm font-mono text-accent-brown tracking-widest uppercase">
               About Me
             </span>
 
@@ -112,7 +112,7 @@ export default function AboutPage() {
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   exit={{ opacity: 0, y: -30, rotateX: 90 }}
                   transition={{ duration: 0.5 }}
-                  className="text-2xl sm:text-3xl lg:text-4xl font-serif italic text-accent-gold"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-serif italic text-accent-brown-dark"
                 >
                   {floatingTitles[titleIndex]}
                 </motion.p>
@@ -140,7 +140,7 @@ export default function AboutPage() {
                 href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3 glass-button rounded-full font-medium text-accent-cream hover:text-accent-gold transition-all"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-accent-brown text-white rounded-full font-medium text-accent-brown hover:text-accent-brown-dark transition-all"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -151,7 +151,7 @@ export default function AboutPage() {
               </a>
               <a
                 href="mailto:putrisyarifah12@gmail.com"
-                className="inline-flex items-center gap-2 px-8 py-3 glass-button rounded-full font-medium text-accent-cream hover:text-accent-gold transition-all"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-accent-brown text-white rounded-full font-medium text-accent-brown hover:text-accent-brown-dark transition-all"
               >
                 Get in Touch
               </a>
@@ -170,7 +170,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-brown tracking-widest uppercase">
             My Story
           </span>
           <h2 className="text-3xl font-serif font-bold text-text-primary mt-2 mb-6">
@@ -205,7 +205,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-brown tracking-widest uppercase">
             Philosophy
           </span>
           <h2 className="text-3xl font-serif font-bold text-text-primary mt-2">
@@ -221,7 +221,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="glass-card rounded-xl p-6 hover:-translate-y-1 transition-transform duration-300"
+              className="bg-white shadow-sm border border-accent-brown/8 rounded-xl p-6 hover:-translate-y-1 transition-transform duration-300"
             >
               <div className="relative w-16 h-16 rounded-xl overflow-hidden mb-4">
                 <Image src={value.image} alt={value.title} fill className="object-cover" sizes="64px" />
@@ -248,7 +248,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-brown tracking-widest uppercase">
             Toolkit
           </span>
           <h2 className="text-3xl font-serif font-bold text-text-primary mt-2">
@@ -268,7 +268,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="px-4 py-2 glass-card rounded-lg text-sm font-mono text-accent-gold/70 hover:text-accent-gold hover:border-accent-gold/30 transition-all cursor-default"
+              className="px-4 py-2 bg-white shadow-sm border border-accent-brown/8 rounded-lg text-sm font-mono text-accent-brown hover:text-accent-brown-dark hover:border-accent-gold/30 transition-all cursor-default"
             >
               {tool}
             </motion.span>
@@ -285,7 +285,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-card rounded-2xl p-10 md:p-16 text-center relative overflow-hidden warm-glow"
+          className="bg-white shadow-sm border border-accent-brown/8 rounded-2xl p-10 md:p-16 text-center relative overflow-hidden warm-glow"
         >
           <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-accent-gold/20" />
           <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-accent-gold/20" />
@@ -302,7 +302,7 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:putrisyarifah12@gmail.com"
-              className="px-8 py-3 glass-button rounded-full font-medium text-accent-cream hover:text-accent-gold transition-all"
+              className="px-8 py-3 bg-accent-brown text-white rounded-full font-medium text-accent-brown hover:text-accent-brown-dark transition-all"
             >
               Let&apos;s Chat
             </a>
@@ -310,7 +310,7 @@ export default function AboutPage() {
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 glass-button rounded-full font-medium text-accent-cream hover:text-accent-gold transition-all"
+              className="px-8 py-3 bg-accent-brown text-white rounded-full font-medium text-accent-brown hover:text-accent-brown-dark transition-all"
             >
               Download Resume
             </a>

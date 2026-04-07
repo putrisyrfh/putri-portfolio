@@ -19,7 +19,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass bg-bg-deep/80">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-bg-page/80 backdrop-blur-md border-b border-accent-brown/10">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <span className="text-2xl font-serif font-bold text-text-primary tracking-tight">
@@ -39,15 +39,15 @@ export default function Navbar() {
                 href={link.href}
                 className={`relative text-sm font-medium tracking-wide transition-colors ${
                   isActive
-                    ? "text-accent-gold"
-                    : "text-text-secondary hover:text-accent-cream"
+                    ? "text-accent-brown-dark"
+                    : "text-text-secondary hover:text-accent-brown"
                 }`}
               >
                 {link.label}
                 {isActive && (
                   <motion.div
                     layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-gold"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-brown"
                   />
                 )}
               </Link>
@@ -57,7 +57,7 @@ export default function Navbar() {
             href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 px-5 py-2 text-sm font-medium glass-button rounded-full text-accent-cream hover:text-accent-gold transition-all"
+            className="ml-4 px-5 py-2 text-sm font-medium bg-accent-brown text-white rounded-full hover:bg-accent-brown-dark transition-all"
           >
             Resume
           </a>
@@ -68,18 +68,9 @@ export default function Navbar() {
           className="md:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle menu"
         >
-          <motion.span
-            animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-text-primary"
-          />
-          <motion.span
-            animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-6 h-0.5 bg-text-primary"
-          />
-          <motion.span
-            animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-text-primary"
-          />
+          <motion.span animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }} className="block w-6 h-0.5 bg-text-primary" />
+          <motion.span animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }} className="block w-6 h-0.5 bg-text-primary" />
+          <motion.span animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }} className="block w-6 h-0.5 bg-text-primary" />
         </button>
       </div>
 
@@ -89,25 +80,15 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden glass"
+            className="md:hidden overflow-hidden bg-bg-page/95 backdrop-blur-md border-b border-accent-brown/10"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-lg font-medium text-text-secondary hover:text-accent-cream transition-colors"
-                >
+                <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="text-lg font-medium text-text-secondary hover:text-accent-brown transition-colors">
                   {link.label}
                 </Link>
               ))}
-              <a
-                href={RESUME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block w-fit px-5 py-2 text-sm font-medium glass-button rounded-full text-accent-cream"
-              >
+              <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="inline-block w-fit px-5 py-2 text-sm font-medium bg-accent-brown text-white rounded-full">
                 Resume
               </a>
             </div>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { projects, experiences, dribbbleShots } from "@/data/projects";
-import { SectionDivider, TornPaperEdge } from "@/components/VintageElements";
+import { SectionDivider } from "@/components/VintageElements";
 import { VintageIcon } from "@/components/VintageIcons";
 import Globe from "@/components/Globe";
 
@@ -22,23 +22,23 @@ const stagger = {
   viewport: { once: true },
 };
 
-// Vintage images - no box, floating transparent style
+// Sticker-style vintage images - no frame
 const vintageItems = [
-  { src: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=200&fit=crop", alt: "Vintage camera", rotate: -10 },
-  { src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&h=200&fit=crop", alt: "Coffee", rotate: 8 },
-  { src: "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=200&h=200&fit=crop", alt: "Airplane travel", rotate: -6 },
-  { src: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=200&h=200&fit=crop", alt: "Music guitar", rotate: 12 },
-  { src: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=200&h=200&fit=crop", alt: "Art painting", rotate: -8 },
-  { src: "https://images.unsplash.com/photo-1524578271613-d550eacf6090?w=200&h=200&fit=crop", alt: "Vintage book", rotate: 5 },
+  { src: "/images/vintage-camera.png", alt: "Vintage camera", rotate: -10, w: 120, h: 100 },
+  { src: "/images/vintage-coffee.png", alt: "Coffee", rotate: 8, w: 100, h: 100 },
+  { src: "/images/vintage-travel.png", alt: "Travel", rotate: -6, w: 130, h: 130 },
+  { src: "/images/vintage-cassette.png", alt: "Music cassette", rotate: 12, w: 110, h: 80 },
+  { src: "/images/vintage-books.png", alt: "Books", rotate: -8, w: 120, h: 120 },
+  { src: "/images/vintage-tulips.png", alt: "Tulips", rotate: 5, w: 90, h: 130 },
 ];
 
 const floatingPositions = [
-  "top-[12%] left-[5%] lg:left-[8%]",
-  "top-[10%] right-[5%] lg:right-[10%]",
-  "bottom-[22%] left-[6%] lg:left-[12%]",
-  "bottom-[18%] right-[5%] lg:right-[10%]",
-  "top-[45%] left-[2%] lg:left-[5%]",
-  "top-[40%] right-[2%] lg:right-[6%]",
+  "top-[14%] left-[4%] lg:left-[7%]",
+  "top-[12%] right-[4%] lg:right-[8%]",
+  "bottom-[24%] left-[5%] lg:left-[10%]",
+  "bottom-[20%] right-[4%] lg:right-[8%]",
+  "top-[48%] left-[1%] lg:left-[4%]",
+  "top-[42%] right-[1%] lg:right-[5%]",
 ];
 
 export default function Home() {
@@ -57,24 +57,43 @@ export default function Home() {
         ref={heroRef}
         className="relative min-h-[100vh] flex items-center justify-center overflow-hidden hero-bg"
       >
-        {/* Floating vintage images - no box, just rounded images */}
+        {/* Journal botanical element on the right side */}
+        <div className="absolute right-0 top-0 bottom-0 w-[200px] lg:w-[300px] hidden md:block pointer-events-none">
+          <Image
+            src="/images/journal-botanical.png"
+            alt="Journal page"
+            fill
+            className="object-contain object-right-top"
+            sizes="300px"
+            priority
+          />
+        </div>
+
+        {/* Floating vintage sticker images - no frame */}
         {vintageItems.map((item, i) => (
           <motion.div
             key={item.alt}
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.7 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 + i * 0.2, duration: 0.8 }}
-            className={`absolute ${floatingPositions[i]} hidden md:block`}
+            transition={{ delay: 0.5 + i * 0.15, duration: 0.7 }}
+            className={`absolute ${floatingPositions[i]} hidden md:block z-10`}
           >
             <motion.div
-              animate={{ y: [0, -10, 0], rotate: [item.rotate, item.rotate + 3, item.rotate] }}
+              animate={{
+                y: [0, -10, 0],
+                rotate: [item.rotate, item.rotate + 3, item.rotate],
+              }}
               transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
-              className="hover:scale-110 transition-transform duration-500 cursor-pointer drop-shadow-2xl"
-              style={{ rotate: `${item.rotate}deg` }}
+              className="hover:scale-110 transition-transform duration-500 cursor-pointer drop-shadow-lg"
             >
-              <div className="relative w-20 h-20 lg:w-28 lg:h-28 rounded-2xl overflow-hidden">
-                <Image src={item.src} alt={item.alt} fill className="object-cover" sizes="112px" />
-              </div>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={item.w}
+                height={item.h}
+                className="object-contain"
+                style={{ transform: `rotate(${item.rotate}deg)` }}
+              />
             </motion.div>
           </motion.div>
         ))}
@@ -88,7 +107,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase mb-6"
+            className="text-sm font-mono text-accent-brown tracking-widest uppercase mb-6"
           >
             This is Putri
           </motion.p>
@@ -99,9 +118,9 @@ export default function Home() {
             transition={{ delay: 0.35, duration: 0.7 }}
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-[family-name:var(--font-display)] text-text-primary leading-[1.1] mb-6"
           >
-            <span className="italic text-accent-gold">Product</span> and
+            <span className="italic text-accent-brown">Product</span> and
             <br />
-            <span className="italic text-accent-gold">Visual</span> designer
+            <span className="italic text-accent-brown">Visual</span> designer
           </motion.h1>
 
           <motion.p
@@ -120,7 +139,7 @@ export default function Home() {
           >
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-10 py-4 glass-button rounded-full font-medium text-lg text-accent-gold/70-light hover:text-accent-gold transition-all duration-300"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-accent-brown text-white rounded-full font-medium text-lg hover:bg-accent-brown-dark transition-all duration-300 shadow-lg"
             >
               Check out my works
             </Link>
@@ -137,7 +156,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
@@ -150,16 +169,14 @@ export default function Home() {
             </svg>
           </div>
         </motion.div>
-        {/* Torn paper edge at hero bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
-          <TornPaperEdge />
-        </div>
       </section>
+
+      <SectionDivider />
 
       {/* =================== FEATURED PROJECTS =================== */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <motion.div {...fadeUp} className="mb-12">
-          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-brown tracking-widest uppercase">
             Selected Work
           </span>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-text-primary mt-2">
@@ -169,43 +186,28 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, i) => (
-            <motion.div
-              key={project.slug}
-              {...stagger}
-              transition={{ delay: i * 0.15, duration: 0.5 }}
-            >
+            <motion.div key={project.slug} {...stagger} transition={{ delay: i * 0.15, duration: 0.5 }}>
               <Link href={`/projects/${project.slug}`} className="group block">
-                <div className="glass-card rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 warm-glow">
+                <div className="bg-white rounded-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 shadow-sm hover:shadow-lg border border-accent-brown/8">
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <motion.div
-                      className="absolute inset-0"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <Image
-                        src={project.thumbnail}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
+                    <motion.div className="absolute inset-0" whileHover={{ scale: 1.05 }} transition={{ duration: 0.5 }}>
+                      <Image src={project.thumbnail} alt={project.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                     </motion.div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/60 to-transparent" />
-                    <div className="absolute top-4 left-4 px-3 py-1 glass rounded-full text-xs font-mono text-accent-gold/70-light">
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full text-xs font-mono text-accent-brown">
                       {project.category}
                     </div>
-                    <div className="absolute top-4 right-4 px-3 py-1 glass rounded-full text-xs font-mono text-text-muted">
+                    <div className="absolute top-4 right-4 px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full text-xs font-mono text-text-muted">
                       {project.year}
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-serif font-bold text-text-primary group-hover:text-accent-gold transition-colors mb-2 line-clamp-2">
+                    <h3 className="text-lg font-serif font-bold text-text-primary group-hover:text-accent-brown transition-colors mb-2 line-clamp-2">
                       {project.title}
                     </h3>
                     <p className="text-sm text-text-secondary leading-relaxed mb-4">
                       {project.description}
                     </p>
-                    <div className="flex items-center gap-2 text-sm font-medium text-accent-gold/70">
+                    <div className="flex items-center gap-2 text-sm font-medium text-accent-brown">
                       <span>View Case Study</span>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
                         <path d="M5 12h14M12 5l7 7-7 7" />
@@ -221,10 +223,10 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* =================== EXPERIENCE (vertical timeline) =================== */}
+      {/* =================== EXPERIENCE =================== */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <motion.div {...fadeUp} className="mb-12">
-          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-brown tracking-widest uppercase">
             Experience
           </span>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-text-primary mt-2">
@@ -238,20 +240,17 @@ export default function Home() {
               key={`${exp.company}-${exp.period}`}
               {...stagger}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group relative pl-12 pb-12 border-l border-glass-border last:pb-0"
+              className="group relative pl-12 pb-12 border-l border-accent-brown/15 last:pb-0"
             >
-              {/* Timeline icon */}
-              <div className="absolute left-[-17px] top-0 w-8 h-8 rounded-full bg-bg-main border border-glass-border flex items-center justify-center group-hover:border-accent-gold/40 transition-colors">
+              <div className="absolute left-[-17px] top-0 w-8 h-8 rounded-full bg-bg-page border-2 border-accent-brown/20 flex items-center justify-center group-hover:border-accent-brown/50 transition-colors">
                 <VintageIcon type={exp.icon} />
               </div>
 
-              <div className="glass-card rounded-xl p-6 hover:-translate-y-1 transition-all duration-300">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-2">
-                  <h3 className="text-lg font-serif font-bold text-text-primary">
-                    {exp.role} - {exp.company}
-                  </h3>
-                </div>
-                <p className="text-sm font-mono text-accent-gold mb-3">
+              <div className="bg-white rounded-xl p-6 shadow-sm hover:-translate-y-1 transition-all duration-300 border border-accent-brown/8">
+                <h3 className="text-lg font-serif font-bold text-text-primary">
+                  {exp.role} - {exp.company}
+                </h3>
+                <p className="text-sm font-mono text-accent-brown mt-1 mb-3">
                   {exp.period} | {exp.location}
                 </p>
                 <p className="text-sm text-text-secondary leading-relaxed">
@@ -265,10 +264,10 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* =================== DESIGN EXPLORATIONS (DRIBBBLE) =================== */}
+      {/* =================== DRIBBBLE EXPLORATIONS =================== */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <motion.div {...fadeUp} className="mb-12">
-          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-brown tracking-widest uppercase">
             Playground
           </span>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-text-primary mt-2">
@@ -281,23 +280,13 @@ export default function Home() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {dribbbleShots.map((shot, i) => (
-            <motion.div
-              key={shot.title}
-              {...stagger}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
-            >
+            <motion.div key={shot.title} {...stagger} transition={{ delay: i * 0.08, duration: 0.5 }}>
               <a href={shot.url} target="_blank" rel="noopener noreferrer" className="group block">
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden glass-card hover:-translate-y-1 transition-all duration-300">
-                  <Image
-                    src={shot.image}
-                    alt={shot.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 768px) 50vw, 20vw"
-                  />
-                  <div className="absolute inset-0 bg-bg-deep/0 group-hover:bg-bg-deep/50 transition-colors duration-300 flex items-end">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-sm hover:-translate-y-1 transition-all duration-300 border border-accent-brown/8">
+                  <Image src={shot.image} alt={shot.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" sizes="(max-width: 768px) 50vw, 20vw" />
+                  <div className="absolute inset-0 bg-text-primary/0 group-hover:bg-text-primary/40 transition-colors duration-300 flex items-end">
                     <div className="p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <p className="text-cream text-xs font-bold">{shot.title}</p>
+                      <p className="text-white text-xs font-bold">{shot.title}</p>
                     </div>
                   </div>
                 </div>
@@ -307,12 +296,7 @@ export default function Home() {
         </div>
 
         <motion.div {...fadeUp} className="text-center mt-8">
-          <a
-            href="https://dribbble.com/putrisyrfh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 glass-button rounded-full text-sm font-medium text-accent-gold/70-light hover:text-accent-gold transition-all"
-          >
+          <a href="https://dribbble.com/putrisyrfh" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-accent-brown text-white rounded-full text-sm font-medium hover:bg-accent-brown-dark transition-all">
             See all on Dribbble
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -329,14 +313,14 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 py-20">
         <motion.div
           {...fadeUp}
-          className="glass-card rounded-2xl p-10 md:p-16 text-center relative overflow-hidden warm-glow"
+          className="bg-white rounded-2xl p-10 md:p-16 text-center relative overflow-hidden shadow-sm border border-accent-brown/8"
         >
-          <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-accent-gold/20" />
-          <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-accent-gold/20" />
-          <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-accent-gold/20" />
-          <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-accent-gold/20" />
+          <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-accent-brown/15" />
+          <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-accent-brown/15" />
+          <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-accent-brown/15" />
+          <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-accent-brown/15" />
 
-          <span className="text-sm font-mono text-accent-gold/70 tracking-widest uppercase">
+          <span className="text-sm font-mono text-accent-brown tracking-widest uppercase">
             Let&apos;s Connect
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-text-primary mt-4 mb-6">
@@ -347,33 +331,25 @@ export default function Home() {
             I&apos;m always open to new adventures.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="mailto:putrisyarifah12@gmail.com"
-              className="px-8 py-3 glass-button rounded-full font-medium text-accent-gold/70-light hover:text-accent-gold transition-all"
-            >
+            <a href="mailto:putrisyarifah12@gmail.com" className="px-8 py-3 bg-accent-brown text-white rounded-full font-medium hover:bg-accent-brown-dark transition-all">
               Send Me a Message
             </a>
-            <a
-              href="https://wa.me/6285813133021"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 glass-button rounded-full font-medium text-accent-gold/70-light hover:text-accent-gold transition-all"
-            >
+            <a href="https://wa.me/6285813133021" target="_blank" rel="noopener noreferrer" className="px-8 py-3 border-2 border-accent-brown text-accent-brown rounded-full font-medium hover:bg-accent-brown hover:text-white transition-all">
               WhatsApp Me
             </a>
           </div>
 
           <div className="flex justify-center gap-6 mt-8">
-            <a href="mailto:putrisyarifah12@gmail.com" className="text-text-muted hover:text-accent-gold/70-light transition-colors">
+            <a href="mailto:putrisyarifah12@gmail.com" className="text-text-muted hover:text-accent-brown transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
-            <a href="https://www.linkedin.com/in/putrist/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent-gold/70-light transition-colors">
+            <a href="https://www.linkedin.com/in/putrist/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent-brown transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="https://dribbble.com/putrisyrfh" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent-gold/70-light transition-colors">
+            <a href="https://dribbble.com/putrisyrfh" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent-brown transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 12.42 6.84 20.68"/></svg>
             </a>
-            <a href="https://wa.me/6285813133021" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent-gold/70-light transition-colors">
+            <a href="https://wa.me/6285813133021" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent-brown transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             </a>
           </div>

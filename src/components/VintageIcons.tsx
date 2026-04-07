@@ -1,7 +1,7 @@
 "use client";
 
 export function VintageIcon({ type }: { type: string }) {
-  const cls = "text-accent-gold/70";
+  const cls = "text-accent-brown";
   switch (type) {
     case "briefcase":
       return (
