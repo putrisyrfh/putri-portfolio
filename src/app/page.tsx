@@ -79,7 +79,7 @@ export default function Home() {
                 alt={item.alt}
                 width={item.w}
                 height={item.h}
-                className="object-contain mix-blend-multiply drop-shadow-lg"
+                className="object-contain drop-shadow-xl"
                 style={{ transform: `rotate(${item.rotate}deg)` }}
               />
             </motion.div>
